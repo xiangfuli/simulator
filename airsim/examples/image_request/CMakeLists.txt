@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.5.0)
+project(image_request)
+
+# AirSim Cmake
+include("${CMAKE_CURRENT_LIST_DIR}/../../../cmake/airsim.cmake")
+
+## Specify additional locations of header files
+include_directories(
+  ${AIRSIM_INCLUDES}
+)
+# add source
+add_executable(${PROJECT_NAME}
+  image_request.cpp
+)
+
+
+target_link_libraries(${PROJECT_NAME} Threads::Threads)
+target_link_libraries(${PROJECT_NAME} ${AIRSIM_LIBS})
+
+
