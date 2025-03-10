@@ -43,8 +43,8 @@ if [ ! -d $airsim_dir ]; then
     git fetch origin 1.8.1-ubuntu20:1.8.1-ubuntu20
     git switch 1.8.1-ubuntu20
   elif $rk3588; then
-    git fetch origin 1.8.1-rk3588:1.8.1-rk3588-debian11
-    git switch 1.8.1-rk3588
+    git fetch origin 1.8.1-rk3588-debian11:1.8.1-rk3588-debian11
+    git switch 1.8.1-rk3588-debian11
   else
     git fetch origin 1.8.1-ubuntu22:1.8.1-ubuntu22  
     git switch 1.8.1-ubuntu22
