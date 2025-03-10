@@ -36,8 +36,10 @@ if [ ! -d $airsim_dir ]; then
   cd AirSim
   if $ubuntu20; then
     git fetch origin 1.8.1-ubuntu20:1.8.1-ubuntu20
+    git switch 1.8.1-ubuntu20
   else
     git fetch origin 1.8.1-ubuntu22:1.8.1-ubuntu22  
+    git switch 1.8.1-ubuntu22
   fi
   # set to use gcc instead of clang
   sed -i 's/CC="gcc-8"/CC="gcc"/' build.sh

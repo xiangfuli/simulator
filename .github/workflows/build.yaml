@@ -12,7 +12,7 @@ on:
 
 
 jobs:
-  build-buntu20:
+  build-ubuntu20:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout Repository
@@ -30,7 +30,7 @@ jobs:
       - name: Run Test Script
         run: ./scripts/test.sh
 
-  build-buntu22:
+  build-ubuntu22:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Repository
