@@ -13,8 +13,8 @@ add_executable(${PROJECT_NAME}
   image_request.cpp
 )
 
-
 target_link_libraries(${PROJECT_NAME} Threads::Threads)
-target_link_libraries(${PROJECT_NAME} ${AIRSIM_LIBS})
+target_link_libraries(${PROJECT_NAME} ${AIR_LIB})
+target_link_libraries(${PROJECT_NAME} ${RPC_LIB})
 
 

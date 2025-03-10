@@ -23,5 +23,3 @@ foreach(LIB ${AIRSIM_STATIC_LIBS})
         message(STATUS "FOUND AIR_LIB: ${AIR_LIB}")
     endif()
 endforeach()
-
-set(AIRSIM_LIBRARIES "${RPC_LIB}" "${AIR_LIB}")

@@ -1,0 +1,65 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+    - 'master'
+    tags:
+    - 'v*'
+  pull_request:
+    branches:
+    - '*'
+
+
+jobs:
+  build-buntu20:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Execute Permissions
+        run: chmod +x ./scripts/setup.sh ./scripts/build.sh ./scripts/test.sh
+
+      - name: Set up
+        run: ./scripts/setup.sh --ubuntu20
+
+      - name: Run Build Script
+        run: ./scripts/build.sh
+
+      - name: Run Test Script
+        run: ./scripts/test.sh
+
+  build-buntu22:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Execute Permissions
+        run: chmod +x ./scripts/setup.sh ./scripts/build.sh ./scripts/test.sh
+
+      - name: Set up
+        run: ./scripts/setup.sh
+
+      - name: Run Build Script
+        run: ./scripts/build.sh
+
+      - name: Run Test Script
+        run: ./scripts/test.sh
+
+  build-arm64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Run Build Script in arm64 Container
+        run: |
+          docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/workspace -w /workspace ubuntu:20.04 /bin/bash -c "apt update && DEBIAN_FRONTEND=noninteractive apt install -y build-essential cmake git python3 python3-pip python-is-python3 && chmod +x ./scripts/setup.sh ./scripts/build.sh ./scripts/test.sh && ./scripts/setup.sh --ubuntu20 && ./scripts/build.sh && ./scripts/test.sh"
