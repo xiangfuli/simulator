@@ -8,6 +8,7 @@
 
 init_px4=false
 ubuntu20=false
+rk3588=false
 for arg in "$@"; do
   case $arg in
     --px4)
@@ -17,6 +18,10 @@ for arg in "$@"; do
     --ubuntu20)
       echo "Enable Ubuntu20"
       ubuntu20=true
+      ;;
+    --rk3588)
+      echo "Enable RK3588"
+      rk3588=true
       ;;
   esac
 done
@@ -37,6 +42,9 @@ if [ ! -d $airsim_dir ]; then
   if $ubuntu20; then
     git fetch origin 1.8.1-ubuntu20:1.8.1-ubuntu20
     git switch 1.8.1-ubuntu20
+  elif $rk3588; then
+    git fetch origin 1.8.1-rk3588:1.8.1-rk3588-debian11
+    git switch 1.8.1-rk3588
   else
     git fetch origin 1.8.1-ubuntu22:1.8.1-ubuntu22  
     git switch 1.8.1-ubuntu22
