@@ -1,20 +1,9 @@
 
 #include "common/ImageCaptureBase.hpp"
 #include "vehicles/multirotor/api/MultirotorRpcLibClient.hpp"
-#include <opencv2/opencv.hpp>
 #include <fstream>
 
 using namespace msr::airlib;
-
-void saveRawImage(const cv::Mat& image, const std::string& filename) {
-    std::ofstream file(filename, std::ios::out | std::ios::binary);
-    if (!file) {
-        std::cerr << "Error: Could not open file for writing!" << std::endl;
-        return;
-    }
-    file.write(reinterpret_cast<const char*>(image.data), image.total() * image.elemSize());
-    file.close();
-}
 
 
 int main(int argc, char *argv[]) 
