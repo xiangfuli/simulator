@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     using namespace msr::airlib;
 
     // for car use CarRpcLibClient
-    MultirotorRpcLibClient client;
+    MultirotorRpcLibClient client("127.0.0.1");
 
     // get right, left and depth images. First two as png, second as float16.
     std::vector<ImageCaptureBase::ImageRequest> request = { 
