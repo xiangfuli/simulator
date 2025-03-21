@@ -3,6 +3,7 @@
   "SimMode": "Multirotor",
   "ClockType": "SteppableClock",
   "PhysicsEngineName": "ExternalPhysicsEngine",
+  "ViewMode": "NoDisplay",
   "CameraDefaults": {
     "CaptureSettings": [
       {

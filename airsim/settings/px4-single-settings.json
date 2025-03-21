@@ -1,0 +1,41 @@
+{
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "ClockType": "SteppableClock",
+  "CameraDefaults": {
+    "CaptureSettings": [
+      {
+        "ImageType": 2,
+        "Width": 320,
+        "Height": 240,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      }
+    ]
+  },
+  "OriginGeopoint": {
+    "Latitude": 0.1,
+    "Longitude": 112.553869,
+    "Altitude": 20
+  },
+  "Vehicles": {
+      "PX4": {
+          "VehicleType": "PX4Multirotor",
+          "AllowAPIAlways": true,
+          "UseSerial": false,
+          "LockStep": true,
+          "UseTcp": true,
+          "TcpPort": 4560,
+          "ControlPortLocal": 14540,
+          "ControlPortRemote": 14580,
+          "Sensors":{
+            "Barometer":{
+              "SensorType": 1,
+              "Enabled": true,
+              "PressureFactorSigma": 0.0001825
+            }
+          }
+      }
+  }
+}

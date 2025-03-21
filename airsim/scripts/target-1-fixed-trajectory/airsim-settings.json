@@ -1,0 +1,56 @@
+{
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "ClockType": "SteppableClock",
+  "ViewMode": "NoDisplay",
+  "CameraDefaults": {
+    "CaptureSettings": [
+      {
+        "ImageType": 0,
+        "Width": 640,
+        "Height": 480,
+        "FOV_Degrees": 90,
+        "AutoExposureSpeed": 100,
+        "MotionBlurAmount": 0
+      }
+    ]
+  },
+  "OriginGeopoint": {
+    "Latitude": 0.1,
+    "Longitude": 112.553869,
+    "Altitude": 20
+  },
+  "PawnPaths": {
+    "DefaultQuadrotor": {"PawnBP": "Class'/AirSim/Blueprints/BP_DJIFlyingPawn.BP_DJIFlyingPawn_C'"}
+  },
+  "Vehicles": {
+      "PX40": {
+          "VehicleType": "PX4Multirotor",
+          "AllowAPIAlways": true,
+          "UseSerial": false,
+          "LockStep": true,
+          "UseTcp": true,
+          "TcpPort": 4560,
+          "ControlPortLocal": 14540,
+          "ControlPortRemote": 14580,
+          "X": 10, "Y": 0, "Z": 0,
+          "Yaw": 180,
+          "Sensors":{
+            "Barometer":{
+              "SensorType": 1,
+              "Enabled": true,
+              "PressureFactorSigma": 0.0001825
+            }
+          }
+      },
+      "SimpleFlight0": {
+          "VehicleType": "SimpleFlight",
+          "AllowAPIAlways": true,
+          "X": 2, "Y": 0, "Z": 0,
+          "RC": {
+            "RemoteControlID": 0,      
+            "AllowAPIWhenDisconnected": true
+          }
+      }
+  }
+}
