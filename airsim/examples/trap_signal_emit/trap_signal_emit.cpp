@@ -15,8 +15,8 @@ int main()
     }
     // emit trap signal
     // 1.0f is the trap threshold, 2.0f is the simulation duration
-    client.emitTrapSignal("PX40", 1.0f, 2.0f);
-
+    std::vector<float> trap_signals = client.emitTrapSignal("PX40", 1.0f, 2.0f);
+    std::cout << "Trap drone trapped: " << trap_signals[0] << ", Min distance: " << trap_signals[1] << std::endl;
     // check trap signal
     // two numbers, first is if the drone is trapped, second is the number of traps triggered
     std::vector<uint32_t> trap_signal = client.ifTrapped();

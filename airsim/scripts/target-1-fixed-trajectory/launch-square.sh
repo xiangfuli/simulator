@@ -31,8 +31,11 @@ $UNREAL_BLOCK_BIN -settings="$current_directory/airsim-settings.json" -windowed 
 AIRSIM_PID=$!
 echo "Airsim running on process $AIRSIM_PID"
 
-
-
+# wait for airsim and command the drone to fly in certain pattern
+# command the drone to fly in a straight line
+python3 $current_directory/../../examples/python/command_drone_straight_line.py --vehicle_name "SimpleFlight0" --duration 36000 --height -6 --points 10 -10 10 10 -10 10 -10 -10 2>&1 > $current_directory/logs/command.log &
+COMMAND_PID=$!
+echo "Drone commands running on process $COMMAND_PID"
 
 
 cd $PX4_DIR && make px4_sitl none_iris

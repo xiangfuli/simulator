@@ -6,6 +6,8 @@ import argparse
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Control drone movement through specified points')
+    parser.add_argument('--vehicle_name', type=str, default="SimpleFlight0",
+                   help='Name of the vehicle to control')
     parser.add_argument('--points', nargs='+', type=float, default=[-10,10, -10,-10],
                         help='List of points as x1 y1 x2 y2 x3 y3 ... (default: [-10,10, -10,-10])')
     parser.add_argument('--height', type=float, default=-3.0,
@@ -29,10 +31,11 @@ def main():
     
     # Connect to the AirSim simulator and specify the vehicle name
     client = airsim.MultirotorClient()
+    time.sleep(5)
     client.confirmConnection()
 
     # Specify the vehicle name "SimpleFlight0"
-    vehicle_name = "SimpleFlight0"
+    vehicle_name = args.vehicle_name
     client.enableApiControl(True, vehicle_name)
     client.armDisarm(True, vehicle_name)
 
